@@ -1,0 +1,36 @@
+{
+    "TOKEN": "YOUR-BOT-TOKEN",
+    "APP_ID": "YOUR-APP-ID",
+    "OWNER": "YOUR-USER-ID",
+    "DEVELOPER": {
+        "YOUR-NAME": "YOUR-USER-ID"
+    },
+    "EMOJIS": {
+        "BOT_DEVELOPER": "🛠️",
+        "SUCCESS": "✅",
+        "ERROR": "⛔",
+        "SHIELD": "🛡️"
+    },
+    "EMBED_COLORS": {
+        "SUCCESS": 6735658,
+        "ERROR": 16716800,
+        "WARNING": 16762654,
+        "TRIPPLESEVEN": "#3d66e9"
+    },
+    "SETUP": {
+        "ECHO_API": {
+            "ECHO_API_KEY": "YOUR-ECHO-API-KEY",
+            "ENDPOINTS": {
+                "PIN_WITHOUT_IP": "https://api.echo.ac/v1/user/pin",
+                "PIN_WITH_IP": "https://api.echo.ac/v1/user/pin?ip=",
+                "VIEW_SCAN_DATA": "https://api.echo.ac/v1/scan"
+            }
+        },
+        "ALLOWED_ROLE_ID": "",
+        "EMBED_THUMBNAIL_IMAGE": "https://YOUR-THUMBNAIL-IMAGE",
+        "EMBED_FOOTER_TEXT": "© 2024 flomkk",
+        "WEBHOOKS": {
+            "ANALYSIS_LOG": "YOUR-DISCORD-WEBHOOK"
+        }
+    }
+}
