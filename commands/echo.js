@@ -126,10 +126,10 @@ module.exports = {
 
 					try {
 						await targetUser.send({ embeds: [UserEmbed] });
-						await interaction.editReply({ content: `Echo link successfully sent to ${targetUser.tag}`, ephemeral: true });
+						await interaction.editReply({ content: `${config.EMOJIS.SUCCESS} Echo link successfully sent to ${targetUser.tag}`, ephemeral: true });
 					} catch (error) {
 						console.error(chalk.red.italic(`[${path.basename(__filename).toUpperCase()}] ${error}`));
-						await interaction.editReply({ content: `Could not send DM to ${targetUser.tag}. Their DMs might be closed.`, ephemeral: true });
+						await interaction.editReply({ content: `${config.EMOJIS.ERROR} Could not send DM to ${targetUser.tag}. Their DMs might be closed.`, ephemeral: true });
 					}
 				} catch (error) {
 					console.error(chalk.red.italic(`[${path.basename(__filename).toUpperCase()}] ${error}`));
