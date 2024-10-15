@@ -40,10 +40,10 @@ module.exports = {
 						.setRequired(true)))
 		.addSubcommand(subcommand =>
 			subcommand.setName('check')
-				.setDescription('Check the scan results of the provided scan id')
+				.setDescription('Check the scan results of the provided scan uuid')
 				.addStringOption(option =>
-					option.setName('scan_id')
-						.setDescription('The scan id you want to check')
+					option.setName('scan_uuid')
+						.setDescription('The scan uuid you want to check')
 						.setRequired(true)))
 		.setDefaultMemberPermissions(PermissionsBitField.Flags.SendMessages),
 
@@ -126,10 +126,10 @@ module.exports = {
 
 					try {
 						await targetUser.send({ embeds: [UserEmbed] });
-						await interaction.editReply({ content: `Echo link successfully sent to ${targetUser.tag}`, ephemeral: true });
+						await interaction.editReply({ content: `${config.EMOJIS.SUCCESS} Echo link successfully sent to ${targetUser.tag}`, ephemeral: true });
 					} catch (error) {
 						console.error(chalk.red.italic(`[${path.basename(__filename).toUpperCase()}] ${error}`));
-						await interaction.editReply({ content: `Could not send DM to ${targetUser.tag}. Their DMs might be closed.`, ephemeral: true });
+						await interaction.editReply({ content: `${config.EMOJIS.ERROR} Could not send DM to ${targetUser.tag}. Their DMs might be closed.`, ephemeral: true });
 					}
 				} catch (error) {
 					console.error(chalk.red.italic(`[${path.basename(__filename).toUpperCase()}] ${error}`));
@@ -147,7 +147,7 @@ module.exports = {
 		}
 
 		if (subcommand === 'check') {
-			const targetScan = options.getString('scan_id');
+			const targetScan = options.getString('scan_uuid');
 
 			if (
 				interaction.member.roles.cache.get(config.SETUP.ALLOWED_ROLE_ID) ||
@@ -164,7 +164,7 @@ module.exports = {
 
 					if (response.status === 400) {
 						return await interaction.editReply({
-							content: `${config.EMOJIS.ERROR} The scan wasnt used or doesnt exist.`,
+							content: `${config.EMOJIS.ERROR} The scan doesnt exist.`,
 							ephemeral: true,
 						});
 					}
